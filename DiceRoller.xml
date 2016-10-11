@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 3;
+var versionNumber = 1.01;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -114,7 +114,7 @@ function rolldAD20(){
 }
 
 function roll20(){
-	function rollDice(20, document.getElementById("d20P").value)
+	function rollDice(20, Number(document.getElementById("d20P").value))
 }
 function rolld12(){
 	function rollDice(12, Number(document.getElementById("d12P").value))
@@ -131,7 +131,7 @@ function rolld6(){
 function rolld4(){
 	function rollDice(4, Number(document.getElementById("d4P").value))
 }
-function rollDice(sides, plus){
+function rollDice(sides, P){
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
@@ -146,7 +146,7 @@ function rollDice(sides, plus){
   else if(dice == 1){
     tempStatus = -1;
   }
-  tempResult = "[" + dice + "] + {" + plus + "} = " + (dice + plus);
+  tempResult = "[" + dice + "] + {" + P + "} = " + (dice + P);
   var output;  
   if(document.getElementById("PrivateRoll").checked == false){
     output = {result: tempResult, name: tempName, status: tempStatus}; 
