@@ -113,16 +113,33 @@ function rolldAD20(){
   
 }
 
-function rolld20(){
-  var dice = Math.floor((Math.random() * 20) + 1);
+function roll20(){
+	function rollDice(20, Number(document.getElementById("d20P").value))
+}
+function rolld12(){
+	function rollDice(12, Number(document.getElementById("d12P").value))
+}
+function rolld10(){
+	function rollDice(10, Number(document.getElementById("d10P").value))
+}
+function rolld8(){
+	function rollDice(8, Number(document.getElementById("8P").value))
+}
+function rolld6(){
+	function rollDice(6, Number(document.getElementById("d6P").value))
+}
+function rolld4(){
+	function rollDice(4, Number(document.getElementById("d4P").value))
+}
+function rollDice(sides, plus){
+  var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
-  var plus = Number(document.getElementById("d20P").value);
   var tempName = document.getElementById("UserName").value;
   if(tempName == ""){
     tempName = "Unnamed";
   }
-  if(dice == 20)
+  if(dice == sides)
   {
     tempStatus = 1;
   }
@@ -130,193 +147,16 @@ function rolld20(){
     tempStatus = -1;
   }
   tempResult = "[" + dice + "] + {" + plus + "} = " + (dice + plus);
-
   var output;  
   if(document.getElementById("PrivateRoll").checked == false){
     output = {result: tempResult, name: tempName, status: tempStatus}; 
     updateResultList(output);
     gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
+  }else{
   output = {result: tempResult, name: "Private Roll", status: tempStatus};
   updateResultList(output);
   }
 }
-
-function rolld12(){
-  var dice = 0;
-  var i = 0;
-  var diceNum = Number(document.getElementById("d12").value);
-  var plus = Number(document.getElementById("d12P").value);
-  var tempResult = "";
-  var tempNum;
-  if(diceNum > 0){
-    diceNum -= 1;
-  }
-  for(i = 0; i < diceNum; ++i){
-    tempNum = Math.floor((Math.random() * 12) + 1);
-    tempResult += "[" + tempNum + "] + ";
-    dice += tempNum;
-  }
-  tempNum = Math.floor((Math.random() * 12) + 1);
-  tempResult += "[" + tempNum + "]";
-  dice += tempNum;
-  tempResult += " + {" + plus + "} = " + (dice + plus);
-  var tempName = document.getElementById("UserName").value;
-  if(tempName == ""){
-    tempName = "Unnamed";
-  }
-  var output;  
-  if(document.getElementById("PrivateRoll").checked == false){
-    output = {result: tempResult, name: tempName, status: 0}; 
-    updateResultList(output);
-    gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
-  output = {result: tempResult, name: "Private Roll", status: 0};
-  updateResultList(output);
-  }
-}
-
-function rolld10(){
-  var dice = 0;
-  var i = 0;
-  var diceNum = Number(document.getElementById("d10").value);
-  var plus = Number(document.getElementById("d10P").value);
-  var tempResult = "";
-  var tempNum;
-  if(diceNum > 0){
-    diceNum -= 1;
-  }
-  for(i = 0; i < diceNum; ++i){
-    tempNum = Math.floor((Math.random() * 10) + 1);
-    tempResult += "[" + tempNum + "] + ";
-    dice += tempNum;
-  }
-  tempNum = Math.floor((Math.random() * 10) + 1);
-  tempResult += "[" + tempNum + "]";
-  dice += tempNum;
-  tempResult += " + {" + plus + "} = " + (dice + plus);
-  var tempName = document.getElementById("UserName").value;
-  if(tempName == ""){
-    tempName = "Unnamed";
-  }
-  var output;  
-  if(document.getElementById("PrivateRoll").checked == false){
-    output = {result: tempResult, name: tempName, status: 0}; 
-    updateResultList(output);
-    gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
-  output = {result: tempResult, name: "Private Roll", status: 0};
-  updateResultList(output);
-  }
-}
-
-function rolld8(){
-  var dice = 0;
-  var i = 0;
-  var diceNum = Number(document.getElementById("d8").value);
-  var plus = Number(document.getElementById("d8P").value);
-  var tempResult = "";
-  var tempNum;
-  if(diceNum > 0){
-    diceNum -= 1;
-  }
-  for(i = 0; i < diceNum; ++i){
-    tempNum = Math.floor((Math.random() * 8) + 1);
-    tempResult += "[" + tempNum + "] + ";
-    dice += tempNum;
-  }
-  tempNum = Math.floor((Math.random() * 8) + 1);
-  tempResult += "[" + tempNum + "]";
-  dice += tempNum;
-  tempResult += " + {" + plus + "} = " + (dice + plus);
-  var tempName = document.getElementById("UserName").value;
-  if(tempName == ""){
-    tempName = "Unnamed";
-  }
-  var output;  
-  if(document.getElementById("PrivateRoll").checked == false){
-    output = {result: tempResult, name: tempName, status: 0}; 
-    updateResultList(output);
-    gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
-  output = {result: tempResult, name: "Private Roll", status: 0};
-  updateResultList(output);
-  }
-}
-
-function rolld6(){
-  var dice = 0;
-  var i = 0;
-  var diceNum = Number(document.getElementById("d6").value);
-  var plus = Number(document.getElementById("d6P").value);
-  var tempResult = "";
-  var tempNum;
-  if(diceNum > 0){
-    diceNum -= 1;
-  }
-  for(i = 0; i < diceNum; ++i){
-    tempNum = Math.floor((Math.random() * 6) + 1);
-    tempResult += "[" + tempNum + "] + ";
-    dice += tempNum;
-  }
-  tempNum = Math.floor((Math.random() * 6) + 1);
-  tempResult += "[" + tempNum + "]";
-  dice += tempNum;
-  tempResult += " + {" + plus + "} = " + (dice + plus);
-  var tempName = document.getElementById("UserName").value;
-  if(tempName == ""){
-    tempName = "Unnamed";
-  }
-  var output;  
-  if(document.getElementById("PrivateRoll").checked == false){
-    output = {result: tempResult, name: tempName, status: 0}; 
-    updateResultList(output);
-    gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
-  output = {result: tempResult, name: "Private Roll", status: 0};
-  updateResultList(output);
-  }
-}
-function rolld4(){
-  var dice = 0;
-  var i = 0;
-  var diceNum = Number(document.getElementById("d4").value);
-  var plus = Number(document.getElementById("d4P").value);
-  var tempResult = "";
-  var tempNum;
-  if(diceNum > 0){
-    diceNum -= 1;
-  }
-  for(i = 0; i < diceNum; ++i){
-    tempNum = Math.floor((Math.random() * 4) + 1);
-    tempResult += "[" + tempNum + "] + ";
-    dice += tempNum;
-  }
-  tempNum = Math.floor((Math.random() * 4) + 1);
-  tempResult += "[" + tempNum + "]";
-  dice += tempNum;
-  tempResult += " + {" + plus + "} = " + (dice + plus);
-  var tempName = document.getElementById("UserName").value;
-  if(tempName == ""){
-    tempName = "Unnamed";
-  }
-  var output;  
-  if(document.getElementById("PrivateRoll").checked == false){
-    output = {result: tempResult, name: tempName, status: 0}; 
-    updateResultList(output);
-    gapi.hangout.data.sendMessage(JSON.stringify(output));
-  }
-  else{
-  output = {result: tempResult, name: "Private Roll", status: 0};
-  updateResultList(output);
-  }
-}
-
 </script>
 </head>
 
