@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.06;
+var versionNumber = 1.07;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -114,31 +114,24 @@ function rolldAD20(){
 }
 
 function roll20(){
-	function rollDice(20);
+	rollDice(20,Number(document.getElementById("d20P").value);
 }
 function rolld12(){
-	//var temp = Number(document.getElementById("d12P").value);
-	//function rollDice(20, temp);
+	rollDice(12, Number(document.getElementById("d12P").value));
 }
 function rolld10(){
-	//var temp = Number(document.getElementById("d10P").value);
-	//function rollDice(20, temp);
+	rollDice(10, Number(document.getElementById("d10P").value));
 }
 function rolld8(){
-	//var temp = Number(document.getElementById("d8P").value);
-	//function rollDice(20, temp);
+	rollDice(8, Number(document.getElementById("d8P").value));
 }
 function rolld6(){
-	//var temp = Number(document.getElementById("d6P").value);
-	//function rollDice(20, temp);
+	rollDice(6, Number(document.getElementById("d6P").value));
 }
 function rolld4(){
-	//var temp = Number(document.getElementById("d4P").value);
-	//function rollDice(20, temp);
+	rollDice(4, Number(document.getElementById("d4P").value));
 }
-function rollDice(sides){
-  console.log("test?");
-  var plus = 20;
+function rollDice(sides, plus){
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
