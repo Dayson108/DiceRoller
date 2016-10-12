@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.08;
+var versionNumber = 1.09;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -113,25 +113,25 @@ function rolldAD20(){
   
 }
 
-function roll20(){
-	rollDice(20,Number(document.getElementById("d20P").value));
+function rolld20(){
+	rolld20Dice(20,Number(document.getElementById("d20P").value));
 }
 function rolld12(){
-	rollDice(12, Number(document.getElementById("d12P").value));
+	rollSidedDice(12, Number(document.getElementById("d12P").value), Number(document.getElementById("d12").value));
 }
 function rolld10(){
-	rollDice(10, Number(document.getElementById("d10P").value));
+	rollSidedDice(10, Number(document.getElementById("d10P").value), Number(document.getElementById("d10").value));
 }
 function rolld8(){
-	rollDice(8, Number(document.getElementById("d8P").value));
+	rollSidedDice(8, Number(document.getElementById("d8P").value), Number(document.getElementById("d8").value));
 }
 function rolld6(){
-	rollDice(6, Number(document.getElementById("d6P").value));
+	rollSidedDice(6, Number(document.getElementById("d6P").value), Number(document.getElementById("d6").value));
 }
 function rolld4(){
-	rollDice(4, Number(document.getElementById("d4P").value));
+	rollSidedDice(4, Number(document.getElementById("d4P").value), Number(document.getElementById("d4").value));
 }
-function rollDice(sides, plus){
+function rolld20Dice(sides, plus){
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
@@ -156,7 +156,41 @@ function rollDice(sides, plus){
   output = {result: tempResult, name: "Private Roll", status: tempStatus};
   updateResultList(output);
   }
-}
+}//rolld20Dice
+
+function rollSidedDice(sides, plus, diceNum){
+  var dice = 0;
+  var i = 0;
+  var tempResult = "";
+  var tempNum;
+  if(diceNum > 0){
+    diceNum -= 1;
+  }
+  for(i = 0; i < diceNum; ++i){
+    tempNum = Math.floor((Math.random() * sides) + 1);
+    tempResult += "[" + tempNum + "] + ";
+    dice += tempNum;
+  }
+  tempNum = Math.floor((Math.random() * sides) + 1);
+  tempResult += "[" + tempNum + "]";
+  dice += tempNum;
+  tempResult += " + {" + plus + "} = " + (dice + plus);
+  var tempName = document.getElementById("UserName").value;
+  if(tempName == ""){
+    tempName = "Unnamed";
+  }
+  var output;  
+  if(document.getElementById("PrivateRoll").checked == false){
+    output = {result: tempResult, name: tempName, status: 0}; 
+    updateResultList(output);
+    gapi.hangout.data.sendMessage(JSON.stringify(output));
+  }
+  else{
+  output = {result: tempResult, name: "Private Roll", status: 0};
+  updateResultList(output);
+  }
+}//rollSidedDice
+
 </script>
 </head>
 
