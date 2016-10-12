@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.04;
+var versionNumber = 1.05;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -114,7 +114,7 @@ function rolldAD20(){
 }
 
 function roll20(){
-	function rollDice(20, document.getElementById("d20P").value);
+	function rollDice(20, 12);
 }
 function rolld12(){
 	//var temp = Number(document.getElementById("d12P").value);
@@ -137,7 +137,6 @@ function rolld4(){
 	//function rollDice(20, temp);
 }
 function rollDice(sides, plus){
-  plus = Number(plus);
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
