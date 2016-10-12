@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.02;
+var versionNumber = 1.03;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -114,24 +114,30 @@ function rolldAD20(){
 }
 
 function roll20(){
-	function rollDice(20, Number(document.getElementById("d20P").value));
+	var temp = Number(document.getElementById("d20P").value);
+	function rollDice(20, temp);
 }
 function rolld12(){
-	function rollDice(12, Number(document.getElementById("d12P").value));
+	var temp = Number(document.getElementById("d12P").value);
+	function rollDice(20, temp);
 }
 function rolld10(){
-	function rollDice(10, Number(document.getElementById("d10P").value));
+	var temp = Number(document.getElementById("d10P").value);
+	function rollDice(20, temp);
 }
 function rolld8(){
-	function rollDice(8, Number(document.getElementById("8P").value));
+	var temp = Number(document.getElementById("d8P").value);
+	function rollDice(20, temp);
 }
 function rolld6(){
-	function rollDice(6, Number(document.getElementById("d6P").value));
+	var temp = Number(document.getElementById("d6P").value);
+	function rollDice(20, temp);
 }
 function rolld4(){
-	function rollDice(4, Number(document.getElementById("d4P").value));
+	var temp = Number(document.getElementById("d4P").value);
+	function rollDice(20, temp);
 }
-function rollDice(sides, P){
+function rollDice(sides, plus){
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
@@ -146,7 +152,7 @@ function rollDice(sides, P){
   else if(dice == 1){
     tempStatus = -1;
   }
-  tempResult = "[" + dice + "] + {" + P + "} = " + (dice + P);
+  tempResult = "[" + dice + "] + {" + plus + "} = " + (dice + plus);
   var output;  
   if(document.getElementById("PrivateRoll").checked == false){
     output = {result: tempResult, name: tempName, status: tempStatus}; 
