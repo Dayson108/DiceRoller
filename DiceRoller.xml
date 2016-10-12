@@ -114,30 +114,30 @@ function rolldAD20(){
 }
 
 function roll20(){
-	var temp = Number(document.getElementById("d20P").value);
-	function rollDice(20, temp);
+	function rollDice(20, document.getElementById("d20P").value);
 }
 function rolld12(){
-	var temp = Number(document.getElementById("d12P").value);
-	function rollDice(20, temp);
+	//var temp = Number(document.getElementById("d12P").value);
+	//function rollDice(20, temp);
 }
 function rolld10(){
-	var temp = Number(document.getElementById("d10P").value);
-	function rollDice(20, temp);
+	//var temp = Number(document.getElementById("d10P").value);
+	//function rollDice(20, temp);
 }
 function rolld8(){
-	var temp = Number(document.getElementById("d8P").value);
-	function rollDice(20, temp);
+	//var temp = Number(document.getElementById("d8P").value);
+	//function rollDice(20, temp);
 }
 function rolld6(){
-	var temp = Number(document.getElementById("d6P").value);
-	function rollDice(20, temp);
+	//var temp = Number(document.getElementById("d6P").value);
+	//function rollDice(20, temp);
 }
 function rolld4(){
-	var temp = Number(document.getElementById("d4P").value);
-	function rollDice(20, temp);
+	//var temp = Number(document.getElementById("d4P").value);
+	//function rollDice(20, temp);
 }
 function rollDice(sides, plus){
+  plus = Number(plus);
   var dice = Math.floor((Math.random() * sides) + 1);
   var tempStatus = 0;
   var tempResult = "";
