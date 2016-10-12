@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.03;
+var versionNumber = 1.04;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
