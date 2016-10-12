@@ -114,7 +114,7 @@ function rolldAD20(){
 }
 
 function roll20(){
-	rollDice(20,Number(document.getElementById("d20P").value);
+	rollDice(20,Number(document.getElementById("d20P").value));
 }
 function rolld12(){
 	rollDice(12, Number(document.getElementById("d12P").value));
