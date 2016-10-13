@@ -13,7 +13,7 @@
 <html>
 <head>
 <script>
-var versionNumber = 1.11;
+var versionNumber = 1.12;
 console.log("API Ready v" + versionNumber)
 </script>
 <script>
@@ -60,10 +60,10 @@ function updateResultList(newInput){
   }
 
 function rolldAD20(){
-	rolld20Dice(20,Number(document.getElementById("d20P").value),1);
+	rolld20Dice(Number(document.getElementById("d20P").value),1);
 }
 function rolld20(){
-	rolld20Dice(20,Number(document.getElementById("d20P").value),0);
+	rolld20Dice(Number(document.getElementById("d20P").value),0);
 }
 function rolld12(){
 	rollSidedDice(12, Number(document.getElementById("d12P").value), Number(document.getElementById("d12").value));
